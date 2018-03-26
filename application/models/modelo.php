@@ -5,7 +5,6 @@ class modelo extends CI_Model {
 
 	function listar_analisis(){
 		$this->db->select('
-
 			an_id as Id,
 			an_locacion as Locacion,
 			an_articulo as Articulo,
@@ -47,12 +46,32 @@ class modelo extends CI_Model {
 			an_generico7 as Generico_7,
 			an_generico8 as Generico_8,
 			an_generico9 as Generico_9,
-			an_generico10 as Generico_10
-
-
+			an_generico10 as Generico_10,
+			an_generico11 as Generico_11,
+			an_generico12 as Generico_12,
+			an_generico13 as Generico_13,
+			an_generico14 as Generico_14,
+			an_generico15 as Generico_15,
+			an_generico16 as Generico_16,
+			an_generico17 as Generico_17,
+			an_generico18 as Generico_18,
+			an_generico19 as Generico_19,
+			an_generico20 as Generico_20,
+			an_generico21 as Generico_21,
+			an_generico22 as Generico_22,
+			an_generico23 as Generico_23,
+			an_generico24 as Generico_24,
+			an_generico25 as Generico_25,
+			an_qad as QAD,
+			an_qad_cliente as CLIENTE,
+			an_fecha_creacion as fechaIngreso,
+			an_usuario as Usuario
 			');
-		$this->db->order_by('an_id', 'asc');
+		// $this->db->order_by('an_id', 'desc'); //SE CAMBIA EL ORDEN A PEDIDO DE PRISCILA FERNÁNDEZ
 		$this->db->from('analisis');
+	 	$this->db->where('an_inventario',1);
+		$this->db->or_where('an_inventario',2);
+		$this->db->order_by('Referencia', 'asc');
 		return $this->db->get()->result_array();
 	}
 
@@ -98,7 +117,22 @@ class modelo extends CI_Model {
 		$Generico_7,
 		$Generico_8,
 		$Generico_9,
-		$Generico_10
+		$Generico_10,
+		$Generico_11,
+		$Generico_12,
+		$Generico_13,
+		$Generico_14,
+		$Generico_15,
+		$Generico_16,
+		$Generico_17,
+		$Generico_18,
+		$Generico_19,
+		$Generico_20,
+		$Generico_21,
+		$Generico_22,
+		$Generico_23,
+		$Generico_24,
+		$Generico_25
 		){
 
 		$data = array(
@@ -144,7 +178,22 @@ class modelo extends CI_Model {
 			'an_generico7' => $Generico_7,
 			'an_generico8' => $Generico_8,
 			'an_generico9' => $Generico_9,
-			'an_generico10' => $Generico_10
+			'an_generico10' => $Generico_10,
+			'an_generico11' => $Generico_11,
+			'an_generico12' => $Generico_12,
+			'an_generico13' => $Generico_13,
+			'an_generico14' => $Generico_14,
+			'an_generico15' => $Generico_15,
+			'an_generico16' => $Generico_16,
+			'an_generico17' => $Generico_17,
+			'an_generico18' => $Generico_18,
+			'an_generico19' => $Generico_19,
+			'an_generico20' => $Generico_20,
+			'an_generico21' => $Generico_21,
+			'an_generico22' => $Generico_22,
+			'an_generico23' => $Generico_23,
+			'an_generico24' => $Generico_24,
+			'an_generico25' => $Generico_25
 
 			);
 		$this->db->where('an_id', $Id);
@@ -166,7 +215,6 @@ class modelo extends CI_Model {
 	}
 
 	function ingresaAnalisis(
-
 		$Locacion,
 		$Articulo,
 		$Fecha,
@@ -207,15 +255,42 @@ class modelo extends CI_Model {
 		$Generico_7,
 		$Generico_8,
 		$Generico_9,
-		$Generico_10
+		$Generico_10,
+		$Generico_11,
+		$Generico_12,
+		$Generico_13,
+		$Generico_14,
+		$Generico_15,
+		$Generico_16,
+		$Generico_17,
+		$Generico_18,
+		$Generico_19,
+		$Generico_20,
+		$Generico_21,
+		$Generico_22,
+		$Generico_23,
+		$Generico_24,
+		$Generico_25,
+		$usuario
 
 		){
+
+			date_default_timezone_set('Chile/Continental');
+			$valor = new DateTime();
+			$fecha = $valor->format('Y-m-d');
+
+			$valor2 = new DateTime();
+			$fecha2 = $valor2->format('Y-m-d H:i:s');
+
+			if ($usuario == 'ciglesias@purefruitchile.com' || $usuario == 'valerie.valdes@purefruitchile.com') {
+				$fecha2 = NULL;
+			}
 
 		$data = array(
 
 			'an_locacion' => $Locacion,
 			'an_articulo' => $Articulo,
-			'an_fecha' => $Fecha,
+			'an_fecha' => $fecha,
 			'an_lote' => $Lote,
 			'an_referencia' => $Referencia,
 			'an_estado' => $Estado,
@@ -253,7 +328,27 @@ class modelo extends CI_Model {
 			'an_generico7' => $Generico_7,
 			'an_generico8' => $Generico_8,
 			'an_generico9' => $Generico_9,
-			'an_generico10' => $Generico_10
+			'an_generico10' => $Generico_10,
+			'an_generico11' => $Generico_11,
+			'an_generico12' => $Generico_12,
+			'an_generico13' => $Generico_13,
+			'an_generico14' => $Generico_14,
+			'an_generico15' => $Generico_15,
+			'an_generico16' => $Generico_16,
+			'an_generico17' => $Generico_17,
+			'an_generico18' => $Generico_18,
+			'an_generico19' => $Generico_19,
+			'an_generico20' => $Generico_20,
+			'an_generico21' => $Generico_21,
+			'an_generico22' => $Generico_22,
+			'an_generico23' => $Generico_23,
+			'an_generico24' => $Generico_24,
+			'an_generico25' => $Generico_25,
+			'an_usuario' => $usuario,
+			'an_qad' => "NO",
+			'an_qad_cliente' => "NO",
+			'an_fecha_creacion' => $fecha2,
+			'an_inventario' => 2
 
 			);
 		$resultado = $this->db->insert('analisis', $data);

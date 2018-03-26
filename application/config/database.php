@@ -96,11 +96,33 @@ $db['default'] = array(
 );
 
 $db['qad'] = array(
-	'dsn'	=> 'mfgpilo',
+	'dsn'	=> 'mfgprod',
 	'hostname' => '192.168.2.236',
-	'username' => 'qadread',
-	'password' => 'qadread',
-	'database' => 'MFGPILO',
+	'username' => 'qadwrite',
+	'password' => 'InfoR.1390',
+	'database' => 'MFGPROD',
+	'dbdriver' => 'odbc',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['qadcst'] = array(
+	'dsn'	=> 'custom',
+	'hostname' => '192.168.2.236',
+	'username' => 'qadwrite',
+	'password' => 'InfoR.1390',
+	'database' => 'CSTPROD',
 	'dbdriver' => 'odbc',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

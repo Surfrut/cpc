@@ -41,9 +41,23 @@ function actualiza_linea(
     Generico_7,
     Generico_8,
     Generico_9,
-    Generico_10
+    Generico_10,
+    Generico_11,
+    Generico_12,
+    Generico_13,
+    Generico_14,
+    Generico_15,
+    Generico_16,
+    Generico_17,
+    Generico_18,
+    Generico_19,
+    Generico_20,
+    Generico_21,
+    Generico_22,
+    Generico_23,
+    Generico_24,
+    Generico_25
     ){
-
     $.ajax({
         url: base_url+'Welcome/actualiza_linea',
         type: 'POST',
@@ -90,15 +104,26 @@ function actualiza_linea(
             Generico_7:Generico_7,
             Generico_8:Generico_8,
             Generico_9:Generico_9,
-            Generico_10:Generico_10
+            Generico_10:Generico_10,
+            Generico_11:Generico_11,
+            Generico_12:Generico_12,
+            Generico_13:Generico_13,
+            Generico_14:Generico_14,
+            Generico_15:Generico_15,
+            Generico_16:Generico_16,
+            Generico_17:Generico_17,
+            Generico_18:Generico_18,
+            Generico_19:Generico_19,
+            Generico_20:Generico_20,
+            Generico_21:Generico_21,
+            Generico_22:Generico_22,
+            Generico_23:Generico_23,
+            Generico_24:Generico_24,
+            Generico_25:Generico_25
         },
     })
     .done(function(data) {
         console.log(data);
-        swal({
-          title: 'cambios guardados!',
-          timer: 550
-      })
         console.log("success actualiza_linea");
 
     })
@@ -107,6 +132,7 @@ function actualiza_linea(
           title: 'Error al guardar los datos: '+data
       })
         console.log("error actualiza_linea");
+        console.log(data);
     })
 }
 
@@ -173,7 +199,22 @@ function ingresaAnalisis(
     Generico_7,
     Generico_8,
     Generico_9,
-    Generico_10
+    Generico_10,
+    Generico_11,
+    Generico_12,
+    Generico_13,
+    Generico_14,
+    Generico_15,
+    Generico_16,
+    Generico_17,
+    Generico_18,
+    Generico_19,
+    Generico_20,
+    Generico_21,
+    Generico_22,
+    Generico_23,
+    Generico_24,
+    Generico_25
     ){
 
     $.ajax({
@@ -221,7 +262,22 @@ function ingresaAnalisis(
             Generico_7:Generico_7,
             Generico_8:Generico_8,
             Generico_9:Generico_9,
-            Generico_10:Generico_10
+            Generico_10:Generico_10,
+            Generico_11:Generico_11,
+            Generico_12:Generico_12,
+            Generico_13:Generico_13,
+            Generico_14:Generico_14,
+            Generico_15:Generico_15,
+            Generico_16:Generico_16,
+            Generico_17:Generico_17,
+            Generico_18:Generico_18,
+            Generico_19:Generico_19,
+            Generico_20:Generico_20,
+            Generico_21:Generico_21,
+            Generico_22:Generico_22,
+            Generico_23:Generico_23,
+            Generico_24:Generico_24,
+            Generico_25:Generico_25
         },
     })
     .done(function(data) {
@@ -240,50 +296,75 @@ function ingresaAnalisis(
         loadData: function(filter) {
             return $.grep(this.analisis, function(analisis) {
                 return (!filter.Id || analisis.Id === filter.Id)
-                && (!filter.Locacion || analisis.Locacion === filter.Locacion)
-                && (!filter.Articulo || analisis.Articulo === filter.Articulo)
-                && (!filter.Fecha || analisis.Fecha === filter.Fecha)
-                && (!filter.Lote || analisis.Lote === filter.Lote)
-                && (!filter.Referencia || analisis.Referencia === filter.Referencia)
-                && (!filter.Estado || analisis.Estado === filter.Estado)
-                && (!filter.Descripcion || analisis.Descripcion === filter.Descripcion)
-                && (!filter.Cliente || analisis.Cliente === filter.Cliente)
-                && (!filter.Nombre || analisis.Nombre === filter.Nombre)
-                && (!filter.Cantidad || analisis.Cantidad === filter.Cantidad)
-                && (!filter.UM || analisis.UM === filter.UM)
-                && (!filter.PH || analisis.PH === filter.PH)
-                && (!filter.Brix || analisis.Brix === filter.Brix)
-                && (!filter.Cons5sec || analisis.Cons5sec === filter.Cons5sec)
-                && (!filter.Cons30sec || analisis.Cons30sec === filter.Cons30sec)
-                && (!filter.Acasc || analisis.Acasc === filter.Acasc)
-                && (!filter.Acidez || analisis.Acidez === filter.Acidez)
-                && (!filter.Bar || analisis.Bar === filter.Bar)
-                && (!filter.Color || analisis.Color === filter.Color)
-                && (!filter.Densidad || analisis.Densidad === filter.Densidad)
-                && (!filter.Pnegros || analisis.Pnegros === filter.Pnegros)
-                && (!filter.Patulina || analisis.Patulina === filter.Patulina)
-                && (!filter.Ramacidos || analisis.Ramacidos === filter.Ramacidos)
-                && (!filter.Hongos || analisis.Hongos === filter.Hongos)
-                && (!filter.Levadura || analisis.Levadura === filter.Levadura)
-                && (!filter.Ecoli || analisis.Ecoli === filter.Ecoli)
-                && (!filter.Coliformes || analisis.Coliformes === filter.Coliformes)
-                && (!filter.HongosTerm || analisis.HongosTerm === filter.HongosTerm)
-                && (!filter.Salmonnela || analisis.Salmonnela === filter.Salmonnela)
-                && (!filter.Alyciclo || analisis.Alyciclo === filter.Alyciclo)
-                && (!filter.Howardm || analisis.Howardm === filter.Howardm)
-                && (!filter.Generico_1 || analisis.Generico_1 === filter.Generico_1)
-                && (!filter.Generico_2 || analisis.Generico_2 === filter.Generico_2)
-                && (!filter.Generico_3 || analisis.Generico_3 === filter.Generico_3)
-                && (!filter.Generico_4 || analisis.Generico_4 === filter.Generico_4)
-                && (!filter.Generico_5 || analisis.Generico_5 === filter.Generico_5)
-                && (!filter.Generico_6 || analisis.Generico_6 === filter.Generico_6)
-                && (!filter.Generico_7 || analisis.Generico_7 === filter.Generico_7)
-                && (!filter.Generico_8 || analisis.Generico_8 === filter.Generico_8)
-                && (!filter.Generico_9 || analisis.Generico_9 === filter.Generico_9)
-                && (!filter.Generico_10 || analisis.Generico_10 === filter.Generico_10)
+                && (!filter.QAD || analisis.QAD === filter.QAD)
+                && (!filter.fechaIngreso || analisis.fechaIngreso.toUpperCase().indexOf(filter.fechaIngreso.toUpperCase())>=0)
+                && (!filter.CLIENTE || analisis.CLIENTE.toUpperCase().indexOf(filter.CLIENTE.toUpperCase())>=0)
+                && (!filter.Locacion || analisis.Locacion.toUpperCase().indexOf(filter.Locacion.toUpperCase())>=0)
+                && (!filter.Articulo || analisis.Articulo.toUpperCase().indexOf(filter.Articulo.toUpperCase())>=0)
+                && (!filter.Fecha || analisis.Fecha.toUpperCase().indexOf(filter.Fecha.toUpperCase())>=0)
+                && (!filter.Lote || analisis.Lote.toUpperCase().indexOf(filter.Lote.toUpperCase())>=0)
+                && (!filter.Referencia || analisis.Referencia.toUpperCase().indexOf(filter.Referencia.toUpperCase())>=0)
+                && (!filter.Estado || analisis.Estado.toUpperCase().indexOf(filter.Estado.toUpperCase())>=0)
+                && (!filter.Descripcion || analisis.Descripcion.toUpperCase().indexOf(filter.Descripcion.toUpperCase())>=0)
+                && (!filter.Cliente || analisis.Cliente.toUpperCase().indexOf(filter.Cliente.toUpperCase())>=0)
+                && (!filter.Nombre || analisis.Nombre.toUpperCase().indexOf(filter.Nombre.toUpperCase())>=0)
+                && (!filter.Cantidad || analisis.Cantidad.toUpperCase().indexOf(filter.Cantidad.toUpperCase())>=0)
+                && (!filter.UM || analisis.UM.toUpperCase().indexOf(filter.UM.toUpperCase())>=0)
+                && (!filter.PH || analisis.PH.toUpperCase().indexOf(filter.PH.toUpperCase())>=0)
+                && (!filter.Brix || analisis.Brix.toUpperCase().indexOf(filter.Brix.toUpperCase())>=0)
+                && (!filter.Cons5sec || analisis.Cons5sec.toUpperCase().indexOf(filter.Cons5sec.toUpperCase())>=0)
+                && (!filter.Cons30sec || analisis.Cons30sec.toUpperCase().indexOf(filter.Cons30sec.toUpperCase())>=0)
+                && (!filter.Acasc || analisis.Acasc.toUpperCase().indexOf(filter.Acasc.toUpperCase())>=0)
+                && (!filter.Acidez || analisis.Acidez.toUpperCase().indexOf(filter.Acidez.toUpperCase())>=0)
+                && (!filter.Bar || analisis.Bar.toUpperCase().indexOf(filter.Bar.toUpperCase())>=0)
+                && (!filter.Color || analisis.Color.toUpperCase().indexOf(filter.Color.toUpperCase())>=0)
+                && (!filter.Densidad || analisis.Densidad.toUpperCase().indexOf(filter.Densidad.toUpperCase())>=0)
+                && (!filter.Pnegros || analisis.Pnegros.toUpperCase().indexOf(filter.Pnegros.toUpperCase())>=0)
+                && (!filter.Patulina || analisis.Patulina.toUpperCase().indexOf(filter.Patulina.toUpperCase())>=0)
+                && (!filter.Ramacidos || analisis.Ramacidos.toUpperCase().indexOf(filter.Ramacidos.toUpperCase())>=0)
+                && (!filter.Hongos || analisis.Hongos.toUpperCase().indexOf(filter.Hongos.toUpperCase())>=0)
+                && (!filter.Levadura || analisis.Levadura.toUpperCase().indexOf(filter.Levadura.toUpperCase())>=0)
+                && (!filter.Ecoli || analisis.Ecoli.toUpperCase().indexOf(filter.Ecoli.toUpperCase())>=0)
+                && (!filter.Coliformes || analisis.Coliformes.toUpperCase().indexOf(filter.Coliformes.toUpperCase())>=0)
+                && (!filter.HongosTerm || analisis.HongosTerm.toUpperCase().indexOf(filter.HongosTerm.toUpperCase())>=0)
+                && (!filter.Salmonnela || analisis.Salmonnela.toUpperCase().indexOf(filter.Salmonnela.toUpperCase())>=0)
+                && (!filter.Alyciclo || analisis.Alyciclo.toUpperCase().indexOf(filter.Alyciclo.toUpperCase())>=0)
+                && (!filter.Howardm || analisis.Howardm.toUpperCase().indexOf(filter.Howardm.toUpperCase())>=0)
+                && (!filter.Generico_1 || analisis.Generico_1.toUpperCase().indexOf(filter.Generico_1.toUpperCase())>=0)
+                && (!filter.Generico_2 || analisis.Generico_2.toUpperCase().indexOf(filter.Generico_2.toUpperCase())>=0)
+                && (!filter.Generico_3 || analisis.Generico_3.toUpperCase().indexOf(filter.Generico_3.toUpperCase())>=0)
+                && (!filter.Generico_4 || analisis.Generico_4.toUpperCase().indexOf(filter.Generico_4.toUpperCase())>=0)
+                && (!filter.Generico_5 || analisis.Generico_5.toUpperCase().indexOf(filter.Generico_5.toUpperCase())>=0)
+                && (!filter.Generico_6 || analisis.Generico_6.toUpperCase().indexOf(filter.Generico_6.toUpperCase())>=0)
+                && (!filter.Generico_7 || analisis.Generico_7.toUpperCase().indexOf(filter.Generico_7.toUpperCase())>=0)
+                && (!filter.Generico_8 || analisis.Generico_8.toUpperCase().indexOf(filter.Generico_8.toUpperCase())>=0)
+                && (!filter.Generico_9 || analisis.Generico_9.toUpperCase().indexOf(filter.Generico_9.toUpperCase())>=0)
+                && (!filter.Generico_10 || analisis.Generico_10.toUpperCase().indexOf(filter.Generico_10.toUpperCase())>=0)
+                && (!filter.Generico_11 || analisis.Generico_11.toUpperCase().indexOf(filter.Generico_11.toUpperCase())>=0)
+                && (!filter.Generico_12 || analisis.Generico_12.toUpperCase().indexOf(filter.Generico_12.toUpperCase())>=0)
+                && (!filter.Generico_13 || analisis.Generico_13.toUpperCase().indexOf(filter.Generico_13.toUpperCase())>=0)
+                && (!filter.Generico_14 || analisis.Generico_14.toUpperCase().indexOf(filter.Generico_14.toUpperCase())>=0)
+                && (!filter.Generico_15 || analisis.Generico_15.toUpperCase().indexOf(filter.Generico_15.toUpperCase())>=0)
+                && (!filter.Generico_16 || analisis.Generico_16.toUpperCase().indexOf(filter.Generico_16.toUpperCase())>=0)
+                && (!filter.Generico_17 || analisis.Generico_17.toUpperCase().indexOf(filter.Generico_17.toUpperCase())>=0)
+                && (!filter.Generico_18 || analisis.Generico_18.toUpperCase().indexOf(filter.Generico_18.toUpperCase())>=0)
+                && (!filter.Generico_19 || analisis.Generico_19.toUpperCase().indexOf(filter.Generico_19.toUpperCase())>=0)
+                && (!filter.Generico_20 || analisis.Generico_20.toUpperCase().indexOf(filter.Generico_20.toUpperCase())>=0)
+                && (!filter.Generico_21 || analisis.Generico_21.toUpperCase().indexOf(filter.Generico_21.toUpperCase())>=0)
+                && (!filter.Generico_22 || analisis.Generico_22.toUpperCase().indexOf(filter.Generico_22.toUpperCase())>=0)
+                && (!filter.Generico_23 || analisis.Generico_23.toUpperCase().indexOf(filter.Generico_23.toUpperCase())>=0)
+                && (!filter.Generico_24 || analisis.Generico_24.toUpperCase().indexOf(filter.Generico_24.toUpperCase())>=0)
+                && (!filter.Generico_25 || analisis.Generico_25.toUpperCase().indexOf(filter.Generico_25.toUpperCase())>=0)
+
+
+
 
 
             });
+
+
+
+
 },
 
 insertItem: function(insertinganalisis) {
@@ -351,7 +432,22 @@ insertItem: function(insertinganalisis) {
         insertinganalisis.Generico_7,
         insertinganalisis.Generico_8,
         insertinganalisis.Generico_9,
-        insertinganalisis.Generico_10
+        insertinganalisis.Generico_10,
+        insertinganalisis.Generico_11,
+        insertinganalisis.Generico_12,
+        insertinganalisis.Generico_13,
+        insertinganalisis.Generico_14,
+        insertinganalisis.Generico_15,
+        insertinganalisis.Generico_16,
+        insertinganalisis.Generico_17,
+        insertinganalisis.Generico_18,
+        insertinganalisis.Generico_19,
+        insertinganalisis.Generico_20,
+        insertinganalisis.Generico_21,
+        insertinganalisis.Generico_22,
+        insertinganalisis.Generico_23,
+        insertinganalisis.Generico_24,
+        insertinganalisis.Generico_25
         );
   })
 },
@@ -360,7 +456,6 @@ updateItem: function(updatinganalisis) {
 
     var analisisIndex = $.inArray(updatinganalisis, this.analisis);
 
-    console.log(updatinganalisis,this.analisis);
     actualiza_linea(
         updatinganalisis.Id,
         updatinganalisis.Locacion,
@@ -403,7 +498,22 @@ updateItem: function(updatinganalisis) {
         updatinganalisis.Generico_7,
         updatinganalisis.Generico_8,
         updatinganalisis.Generico_9,
-        updatinganalisis.Generico_10
+        updatinganalisis.Generico_10,
+        updatinganalisis.Generico_11,
+        updatinganalisis.Generico_12,
+        updatinganalisis.Generico_13,
+        updatinganalisis.Generico_14,
+        updatinganalisis.Generico_15,
+        updatinganalisis.Generico_16,
+        updatinganalisis.Generico_17,
+        updatinganalisis.Generico_18,
+        updatinganalisis.Generico_19,
+        updatinganalisis.Generico_20,
+        updatinganalisis.Generico_21,
+        updatinganalisis.Generico_22,
+        updatinganalisis.Generico_23,
+        updatinganalisis.Generico_24,
+        updatinganalisis.Generico_25
         );
 
 },
@@ -430,6 +540,7 @@ $.ajax({
 })
 .done(function(data) {
     data_ = data;
+    console.log(data_);
     console.log("success listar_analisis");
 })
 .fail(function(data) {

@@ -62,6 +62,21 @@ class Welcome extends CI_Controller {
 		$Generico_8 = $this->input->post("Generico_8");
 		$Generico_9 = $this->input->post("Generico_9");
 		$Generico_10 = $this->input->post("Generico_10");
+		$Generico_11 = $this->input->post("Generico_11");
+		$Generico_12 = $this->input->post("Generico_12");
+		$Generico_13 = $this->input->post("Generico_13");
+		$Generico_14 = $this->input->post("Generico_14");
+		$Generico_15 = $this->input->post("Generico_15");
+		$Generico_16 = $this->input->post("Generico_16");
+		$Generico_17 = $this->input->post("Generico_17");
+		$Generico_18 = $this->input->post("Generico_18");
+		$Generico_19 = $this->input->post("Generico_19");
+		$Generico_20 = $this->input->post("Generico_20");
+		$Generico_21 = $this->input->post("Generico_21");
+		$Generico_22 = $this->input->post("Generico_22");
+		$Generico_23 = $this->input->post("Generico_23");
+		$Generico_24 = $this->input->post("Generico_24");
+		$Generico_25 = $this->input->post("Generico_25");
 
 		$valor = $this->modelo->actualiza_linea(
 			$Id,
@@ -105,7 +120,22 @@ class Welcome extends CI_Controller {
 			$Generico_7,
 			$Generico_8,
 			$Generico_9,
-			$Generico_10
+			$Generico_10,
+			$Generico_11,
+			$Generico_12,
+			$Generico_13,
+			$Generico_14,
+			$Generico_15,
+			$Generico_16,
+			$Generico_17,
+			$Generico_18,
+			$Generico_19,
+			$Generico_20,
+			$Generico_21,
+			$Generico_22,
+			$Generico_23,
+			$Generico_24,
+			$Generico_25
 			);
 		echo json_encode($valor);
 	}
@@ -165,7 +195,23 @@ class Welcome extends CI_Controller {
 		$Generico_8 = $this->input->post('Generico_8');
 		$Generico_9 = $this->input->post('Generico_9');
 		$Generico_10 = $this->input->post('Generico_10');
+		$Generico_11 = $this->input->post('Generico_11');
+		$Generico_12 = $this->input->post('Generico_12');
+		$Generico_13 = $this->input->post('Generico_13');
+		$Generico_14 = $this->input->post('Generico_14');
+		$Generico_15 = $this->input->post('Generico_15');
+		$Generico_16 = $this->input->post('Generico_16');
+		$Generico_17 = $this->input->post('Generico_17');
+		$Generico_18 = $this->input->post('Generico_18');
+		$Generico_19 = $this->input->post('Generico_19');
+		$Generico_20 = $this->input->post('Generico_20');
+		$Generico_21 = $this->input->post('Generico_21');
+		$Generico_22 = $this->input->post('Generico_22');
+		$Generico_23 = $this->input->post('Generico_23');
+		$Generico_24 = $this->input->post('Generico_24');
+		$Generico_25 = $this->input->post('Generico_25');
 		$analisis = $this->input->post('analisis');
+		$usuario = $this->input->post('usuario');
 		$valor = $this->modelo->ingresaAnalisis(
 			$Locacion,
 			$Articulo,
@@ -207,7 +253,23 @@ class Welcome extends CI_Controller {
 			$Generico_7,
 			$Generico_8,
 			$Generico_9,
-			$Generico_10
+			$Generico_10,
+			$Generico_11,
+			$Generico_12,
+			$Generico_13,
+			$Generico_14,
+			$Generico_15,
+			$Generico_16,
+			$Generico_17,
+			$Generico_18,
+			$Generico_19,
+			$Generico_20,
+			$Generico_21,
+			$Generico_22,
+			$Generico_23,
+			$Generico_24,
+			$Generico_25,
+			$usuario
 			);
 		echo json_encode($valor);
 	}

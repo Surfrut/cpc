@@ -1354,13 +1354,13 @@ $('.btn_ingresar').on('click', function(){
 
               $('.txt_locacion').val("");
               $('.txt_articulo').val("");
-              $('.txt_fecha').val("");
-              $('.txt_lote').val("");
+              // $('.txt_fecha').val(""); //SE COMENTAN PARA QUE USUARIO NO VUELVA INGRESAR - JOSSELYN LABORATORIO
+              // $('.txt_lote').val(""); //SE COMENTAN PARA QUE USUARIO NO VUELVA INGRESAR - JOSSELYN LABORATORIO
               $('.txt_referencia').val("");
               $('.txt_estado').val("");
-              $('.txt_descripcion').val("");
+              // $('.txt_descripcion').val(""); //SE COMENTAN PARA QUE USUARIO NO VUELVA INGRESAR - JOSSELYN LABORATORIO
               $('.txt_cliente').val("");
-              $('.txt_nombre').val("");
+              // $('.txt_nombre').val(""); //SE COMENTAN PARA QUE USUARIO NO VUELVA INGRESAR - JOSSELYN LABORATORIO
               $('.txt_cantidad').val("");
               $('.txt_um').val("");
               $('.txt_ph').val("");
@@ -1436,7 +1436,7 @@ $('.jsgrid-grid-body').children().addClass('test');
 $('.btn_csv').on('click', function() {
 
   swal({
-  title: 'Are you sure?',
+  title: 'Descargar?',
   text: "Descargaras solo los datos que estan en pantalla!",
   type: 'question',
   showCancelButton: true,
@@ -1462,7 +1462,7 @@ function exportTableToCSV(filename) {
 
 	var csv = [];
 	var rows = document.querySelectorAll("table.test tr");
-  csv.push("#;QAD;Cliente;Locacion;Articulo;Fecha;Lote;Referencia;Estado;Descripcion;Cliente;Nombre;Cantidad;UM;PH;Brix;Cons5sec;Cons30sec;Acasc;Acidez;Bar;Color;Densidad;Pnegros;Patulina;Ramacidos;Hongos;Levadura;Ecoli;Califormes;HongosTerm;Salmonnela;Alyciclo;Howardm;Generico_1;Generico_2;Generico_3;Generico_4;Generico_5;Generico_6;Generico_7;Generico_8;Generico_9;Generico_10;Generico_11;Generico_12;Generico_13;Generico_14;Generico_15;Generico_16;Generico_17;Generico_18;Generico_19;Generico_20;Generico_21;Generico_22;Generico_23;Generico_24;Generico_25");
+  csv.push("#;Fec. Creacion;Usuario;QAD;Cliente;Locacion;Articulo;Fecha;Lote;Referencia;Estado;Descripcion;Cliente;Nombre;Cantidad;UM;PH;Brix;Cons5sec;Cons30sec;Acasc;Acidez;Bar;Color;Densidad;Pnegros;Patulina;Ramacidos;Hongos;Levadura;Ecoli;Califormes;HongosTerm;Salmonnela;Alyciclo;Howardm;Generico_1;Generico_2;Generico_3;Generico_4;Generico_5;Generico_6;Generico_7;Generico_8;Generico_9;Generico_10;Generico_11;Generico_12;Generico_13;Generico_14;Generico_15;Generico_16;Generico_17;Generico_18;Generico_19;Generico_20;Generico_21;Generico_22;Generico_23;Generico_24;Generico_25");
 
 
 	for (var i = 0; i < rows.length; i++) {

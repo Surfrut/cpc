@@ -355,6 +355,45 @@ class modelo extends CI_Model {
 		return $resultado;
 	}
 
+	function ingresanAnalisis($datos){
+
+		date_default_timezone_set('Chile/Continental');
+		$valor = new DateTime();
+
+		$arreglo = array();
+		$largo = 8;
+		$referencias = '';
+		$largo_necesitado = 0;
+		$ceros = '';
+		$fecha ='';
+		for ($i=$datos[1]; $i <= $datos[2] ; $i++) {
+			var_dump($datos[4],"<--modelo");
+
+			$date = str_replace('/', '-', $datos[4]);
+			$fecha = date('Y-m-d', strtotime($date));
+
+			$largo_necesitado = $largo - strlen($datos[0]);
+			$referencia = $largo_necesitado-strlen($i);
+
+			for ($j=1; $j <= $referencia; $j++) {
+				$ceros.=0;
+			}
+
+			$fecha_creacion = $valor->format('Y-m-d H:i:s');
+
+			$query = 'insert into analisis (an_referencia,an_lote,an_inventario,an_fecha,an_fecha_creacion,an_qad,an_qad_cliente) values("'.$datos[0].$ceros.$i.'", "'.$datos[3].'", 2, "'.$fecha.'", "'.$fecha_creacion.'", "NO", "NO")';
+			// var_dump("Referencias: ".$referencia. " Prefijo: ".$datos[0]. " Ceros: ".$ceros);
+			// var_dump($query);
+			$ceros = '';
+			if ($this->db->query($query)) {
+				array_push($arreglo, $datos[0].$i);
+			}
+		}
+		array_push($arreglo, $datos[3]);
+
+		return $arreglo;
+	}//FIN FUNCTION
+
 }
 
 /* End of file modelo.php */

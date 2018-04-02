@@ -265,14 +265,18 @@
 				title: "Lote",
 				type: "text",
 				css: "qad csv",
-				editing: false
+				// editing: false //SE PERMITE LA EDICIÓN DE LOTE Y REFERENCIA YA QUE NO IMPLICA CAMBIOS A QAD.
+				editing: true
+
 			},
 			{
 				name: "Referencia",
 				title: "Referencia",
 				type: "text",
 				css: "qad csv",
-				editing: false
+				// editing: false //SE PERMITE LA EDICIÓN DE LOTE Y REFERENCIA YA QUE NO IMPLICA CAMBIOS A QAD.
+				editing: true
+
 			},
 			{
 				name: "Estado",
@@ -370,51 +374,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -424,51 +420,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -478,52 +466,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
 
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+					}//fin if != NULL
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 
@@ -534,51 +513,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -588,51 +559,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -642,51 +605,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -696,105 +651,88 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
-			},
-			{
+			},{
 				name: "Densidad",
 				title: "Densidad",
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -804,51 +742,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -858,51 +788,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -912,51 +834,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -966,51 +880,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1020,51 +926,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1074,51 +972,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1128,51 +1018,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1182,51 +1064,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1236,51 +1110,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1290,51 +1156,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1344,51 +1202,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1398,51 +1248,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1452,51 +1294,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1506,51 +1340,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1560,51 +1386,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1614,51 +1432,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1668,51 +1478,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1722,51 +1524,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1776,51 +1570,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1830,51 +1616,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1884,51 +1662,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1938,51 +1708,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -1992,51 +1754,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2046,51 +1800,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2100,51 +1846,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2154,51 +1892,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2208,51 +1938,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2262,51 +1984,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2316,51 +2030,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2370,51 +2076,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2424,51 +2122,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2478,51 +2168,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"00";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2532,51 +2214,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2586,51 +2260,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2640,51 +2306,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2694,51 +2352,43 @@
 				type: "text",
 				css: "php csv muestra",
 				cellRenderer: function (pValue, pItem) {
+					let pintar = 0;
+					let largo_generado = 0
 
 					if (pValue != null) {
-						// console.log(pValue);
-						let valor4 = pValue.slice(-4);
-						let valor5 = pValue.slice(-5);
 
-						switch (valor4) {
-							case ".000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
-						}//FIN VALOR 4
+						for (var i = 0; i <= 9; i++) {
+							largo_generado = ".00"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 9
+						for (var i = 0; i <= 99; i++) {
+							largo_generado = ".0"+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 99
+						for (var i = 0; i <= 999; i++) {
+							largo_generado = "."+i+"000";
+							let despues_punto = pValue.slice(-largo_generado.length);
+							if (largo_generado==despues_punto) {
+								pintar = 1;
+								break;
+							}
+						}//FIN FOR 999
 
-						switch (valor5) {
-							case ".1000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".2000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".3000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".4000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".5000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".6000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".7000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".8000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							case ".9000":
-							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
-							break;
-							default:
+					}//fin if != NULL
+
+					if (pintar == 0) {
 							return $("<td>").append(pValue);
-						}//FIN VALOR 5
-					}//fin if
+					}else{
+							return $("<td>").css('background-color', 'red').append(pValue).addClass('red');
+					}
 
 				}//FIN CELLRENDERER
 			},
@@ -2746,12 +2396,9 @@
 				type: "control",
 				editButton: true,
 				width: "300",
-				headerTemplate: function() {
-
-				},
 				itemTemplate: function(value, item) {
 					var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
-					var $customButton = $("<buttton class='material-icons subir' dp48>arrow_upward</buttton> &nbsp; <buttton class='material-icons bajar' dp48>arrow_downward</buttton> &nbsp; <buttton class='material-icons habilitar' dp24>done</buttton><buttton class='material-icons habilitar' dp24>block</buttton> &nbsp; <buttton class='material-icons asignar2' dp48>spellcheck</buttton> &nbsp; <buttton class='material-icons asignar' dp48>assignment_ind</button>")
+					var $customButton = $("<buttton class='material-icons subir' dp48> arrow_upward</buttton> &nbsp; <buttton class='material-icons bajar' dp48>arrow_downward</buttton> &nbsp; <buttton class='material-icons habilitar' dp24>done</buttton><buttton class='material-icons habilitar' dp24>block</buttton> &nbsp; <buttton class='material-icons asignar2' dp48>spellcheck</buttton> &nbsp; <buttton class='material-icons asignar' dp48>assignment_ind</button>")
 						// var $customButton1 = $("<buttton class='material-icons habilitar' dp48>done_all</buttton>")
 						// .text(item.id)
 						.click(function(e) {
@@ -2791,7 +2438,7 @@
 										var phs = largo.eq(i - 1).children("td").eq(16).text()
 										var brix = largo.eq(i - 1).children("td").eq(17).text()
 										var cons5sec = largo.eq(i - 1).children("td").eq(18).text()
-										var cons30sec = largo.eq(i - 1).children("td").eq(18).text()
+										var cons30sec = largo.eq(i - 1).children("td").eq(19).text()
 										var acasc = largo.eq(i - 1).children("td").eq(20).text()
 										var acidez = largo.eq(i - 1).children("td").eq(21).text()
 										var bar = largo.eq(i - 1).children("td").eq(22).text()
@@ -3379,7 +3026,7 @@
 		$('#modal1').modal('open');
 	})
 
-	$('.btn_ingresar').on('click', function() {
+	$('body').on('click', '.btn_ingresar', function() {
 		// console.log("Ingresando analisis..");
 		// let analisis = {};
 		let Locacion = $('.txt_locacion').val();
@@ -3544,10 +3191,64 @@
 				}) //FIN AJAX
 		}
 	});
-	$('.nopresionar').on('click',function(){
-		let Fecha = $('.txt_fecha').val();
-		console.log(Fecha);
-	});
+
+	$('body').on('click', '.btn_ingresarn', function(){
+		let datos = []
+		let txt_prefijo = $('.txt_prefijo').val();
+		let txt_desde = $('.txt_desde').val();
+		let txt_hasta = $('.txt_hasta').val();
+		let txt_lote2 = $('.txt_lote2').val();
+		let txt_fechan = $('.txt_fechan').val();
+		var new_txt_fechan = txt_fechan.split("-").reverse().join("-");
+		console.log(new_txt_fechan,"plqs");
+		// var newdate = date.split("-").reverse().join("-");
+
+		if (txt_prefijo.trim()=='' || txt_desde < 0 || txt_hasta < 0 || txt_lote2.trim()=='') {
+			swal('Debes completar todos los campos.');
+		}else{
+
+		if (parseInt(txt_hasta)<parseInt(txt_desde)) {
+			swal('Debes indicar la referencia menor primero.');
+		}else{
+
+		datos.push(txt_prefijo);
+		datos.push(parseInt(txt_desde));
+		datos.push(parseInt(txt_hasta));
+		datos.push(txt_lote2);
+		datos.push(new_txt_fechan);
+
+		let datosjson = JSON.stringify(datos);
+
+		$.ajax({
+			url: base_url+'Welcome/ingresanAnalisis',
+			type: 'POST',
+			dataType: 'json',
+			data: {datos:datosjson}
+		}).done(function(data){
+			console.log('success ingresanAnalisis');
+
+			let variable = '';
+
+			for (var i = 0; i < data.length; i++) {
+				variable = '<tr><td>"'+txt_lote2+'"</td><td>"'+data[i]+'"</td></tr>';
+			}
+
+			$('#modal1.ingresoReferencias').modal('close');
+			swal(
+			  'Listo!',
+			  `Rango Ingresado`,
+			  'success'
+			)
+
+		}).fail(function(data){
+			console.log(data);
+			console.log('success ingresanAnalisis');
+		})//FIN AJAX ingresanAnalisis
+
+		}//FIN ELSE
+
+		}
+	});//FIN BTN_INGRESARN
 
 	//VALIDA LOS QUE "NO" ESTAN EN QAD Y LOS MARCA EN ROJO
 	$('body').on('click', function() {
@@ -3595,7 +3296,7 @@ function exportTableToCSV(filename) {
 
 	var csv = [];
 	var rows = document.querySelectorAll("table.test tr");
-  csv.push("#;QAD;Cliente;Locacion;Articulo;Fecha;Lote;Referencia;Estado;Descripcion;Cliente;Nombre;Cantidad;UM;PH;Brix;Cons5sec;Cons30sec;Acasc;Acidez;Bar;Color;Densidad;Pnegros;Patulina;Ramacidos;Hongos;Levadura;Ecoli;Califormes;HongosTerm;Salmonnela;Alyciclo;Howardm;Generico_1;Generico_2;Generico_3;Generico_4;Generico_5;Generico_6;Generico_7;Generico_8;Generico_9;Generico_10;Generico_11;Generico_12;Generico_13;Generico_14;Generico_15;Generico_16;Generico_17;Generico_18;Generico_19;Generico_20;Generico_21;Generico_22;Generico_23;Generico_24;Generico_25");
+  csv.push("#;Usuario;Fec. Creacion;QAD;Cliente;Locacion;Articulo;Fecha;Lote;Referencia;Estado;Descripcion;Cliente;Nombre;Cantidad;UM;PH;Brix;Cons5sec;Cons30sec;Acasc;Acidez;Bar;Color;Densidad;Pnegros;Patulina;Ramacidos;Hongos;Levadura;Ecoli;Califormes;HongosTerm;Salmonnela;Alyciclo;Howardm;Generico_1;Generico_2;Generico_3;Generico_4;Generico_5;Generico_6;Generico_7;Generico_8;Generico_9;Generico_10;Generico_11;Generico_12;Generico_13;Generico_14;Generico_15;Generico_16;Generico_17;Generico_18;Generico_19;Generico_20;Generico_21;Generico_22;Generico_23;Generico_24;Generico_25");
 
 
 	for (var i = 0; i < rows.length; i++) {
@@ -3633,11 +3334,11 @@ function downloadCSV(csv, filename) {
 }
 //FUNCIONES QUE EXPORTAN LO QUE EL USUARIO ESTA VIENDO A EXCEL
 
-//FUNCION CLICK QUE DESCARGA TODA LA DATA DE ANALISIS EN MYSQL
+//FUNCION CLICK QUE DESCARGA TODA LA DATA DE ANALISIS EN MYSQL **REPORTE EXISTENCIA E HISTORICO
 $('.btn_data').on('click', function(){
 window.location.href = base_url+'analista/ana_analista_c/descargar_data';
 });
-//FUNCION CLICK QUE DESCARGA TODA LA DATA DE ANALISIS EN MYSQL
+//FUNCION CLICK QUE DESCARGA TODA LA DATA DE ANALISIS EN MYSQL **REPORTE EXISTENCIA E HISTORICO
 
 //REPLICA DEL REPORTE INVENTARIO.
 $('.btn_menu').on('click', function(){
@@ -3690,7 +3391,7 @@ function ocultaElem(){
 //MODAL PARA INGRESAR N LOTES/REFERENCIAS.
 $('.btn_nReferencias').on('click', function(){
 	$('#modal1.ingresoReferencias').addClass('bounceOutLeft animated');
-	$('#modal3.nReferencias').addClass('bounceInRight animated').modal('open');
+	$('#modal3.nReferencias').addClass('bounceInRig  animated').modal('open');
 	// });
 });
 //MODAL PARA INGRESAR N LOTES/REFERENCIAS.
@@ -3708,3 +3409,11 @@ $('.btn_cencelarnReferencias').on('click', function(){
 	$('.modal').removeClass('bounceInRight animated');
 });
 
+function cambioBoton(){
+	let claseBtn = $('.boton').hasClass('btn_ingresar');
+	if(!claseBtn){
+		$('.boton').removeClass('btn_ingresarn').addClass('btn_ingresar');
+	}else{
+		$('.boton').removeClass('btn_ingresar').addClass('btn_ingresarn');
+	}
+}

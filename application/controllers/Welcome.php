@@ -274,4 +274,11 @@ class Welcome extends CI_Controller {
 		echo json_encode($valor);
 	}
 
+	function ingresanAnalisis(){
+		$datos = $this->input->post('datos');
+		$datos = json_decode($datos);
+		$valor = $this->modelo->ingresanAnalisis($datos);
+		echo json_encode($valor);
+	}
+
 }

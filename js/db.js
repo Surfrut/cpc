@@ -295,8 +295,10 @@ function ingresaAnalisis(
     var db = {
         loadData: function(filter) {
             return $.grep(this.analisis, function(analisis) {
+                // console.log(analisis.Nombre);
                 return (!filter.Id || analisis.Id === filter.Id)
                 && (!filter.QAD || analisis.QAD === filter.QAD)
+                && (!filter.Usuario || analisis.Usuario.toUpperCase().indexOf(filter.Usuario.toUpperCase())>=0 )
                 && (!filter.fechaIngreso || analisis.fechaIngreso.toUpperCase().indexOf(filter.fechaIngreso.toUpperCase())>=0)
                 && (!filter.CLIENTE || analisis.CLIENTE.toUpperCase().indexOf(filter.CLIENTE.toUpperCase())>=0)
                 && (!filter.Locacion || analisis.Locacion.toUpperCase().indexOf(filter.Locacion.toUpperCase())>=0)

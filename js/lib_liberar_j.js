@@ -2931,10 +2931,11 @@
 							if (e.target.className == "material-icons asignar2") {
 								console.log(item.Cliente, "enviando");
 								var id = item.Id;
-								var cliente = item.Cliente;
+								var cliente = item.CLIENTE;
 								var lote = item.Lote;
 								var referencia = item.Referencia;
 								var ubicacion = item.Locacion;
+								console.log(item);
 								if (cliente == "NO") {
 									swal("Debes Pre-Asignar cliente antes de Asignar en QAD...");
 								} else {

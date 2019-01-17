@@ -289,10 +289,10 @@ class modelo extends CI_Model {
 		$data = array(
 
 			'an_locacion' => $Locacion,
-			'an_articulo' => $Articulo,
+			'an_articulo' => trim($Articulo),
 			'an_fecha' => $fecha,
-			'an_lote' => $Lote,
-			'an_referencia' => $Referencia,
+			'an_lote' => trim($Lote),
+			'an_referencia' => trim($Referencia),
 			'an_estado' => $Estado,
 			'an_descripcion' => $Descripcion,
 			'an_cliente' => $Cliente,

@@ -282,7 +282,7 @@ class modelo extends CI_Model {
 			$valor2 = new DateTime();
 			$fecha2 = $valor2->format('Y-m-d H:i:s');
 
-			if ($usuario == 'ciglesias@purefruitchile.com' || $usuario == 'valerie.valdes@purefruitchile.com') {
+			if ($usuario == 'ciglesias@purefruitchile.com' || $usuario == 'valerie.valdes@purefruitchile.com' || $usuario == 'ealcantara@purefruitchile.com') {
 				$fecha2 = NULL;
 			}
 
